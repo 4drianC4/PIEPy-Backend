@@ -11,6 +11,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(morgan('dev'));
 
+app.get('/', (req, res) => {
+  res.send('Welcome to the API!');
+});
+
 if (require.main === module) {
     const port = process.env.PORT || 5000;
     app.listen(port, () => {
