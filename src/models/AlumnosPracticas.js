@@ -1,8 +1,8 @@
 'use strict';
 
 module.exports = (sequelize, DataTypes) => {
-    const AlumnosPracticas = sequelize.define('alumnos_practicas', {
-        id_Alumnos: {
+    const AlumnosPracticas = sequelize.define('alumnosPracticas', {
+        idAlumnos: {
             type: DataTypes.INTEGER,
             primaryKey: true,
             references: {
@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
                 key: 'id'
             }
         },
-        id_Practicas: {
+        idPracticas: {
             type: DataTypes.INTEGER,
             primaryKey: true,
             references: {
@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: true
         },
     }, {
-        tableName: 'alumnos_practicas',
+        tableName: 'alumnosPracticas',
         timestamps: false
     });
     AlumnosPracticas.associate = function(models) {
