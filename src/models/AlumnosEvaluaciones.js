@@ -27,8 +27,14 @@ module.exports = (sequelize, DataTypes) => {
         timestamps: false
     });
     AlumnosEvaluaciones.associate = function(models) {
-        AlumnosEvaluaciones.belongsTo(models.alumnos, { foreignKey: 'id_Alumnos' });
-        AlumnosEvaluaciones.belongsTo(models.evaluaciones, { foreignKey: 'id_Evaluaciones' });
+        AlumnosEvaluaciones.belongsTo(models.alumnos, { 
+            foreignKey: 'idAlumnos',
+            as: 'alumnos'
+        });
+        AlumnosEvaluaciones.belongsTo(models.evaluaciones, { 
+            foreignKey: 'idEvaluaciones',
+            as: 'evaluaciones'
+        });
     }
     return AlumnosEvaluaciones;
 }

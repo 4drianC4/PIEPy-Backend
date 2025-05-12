@@ -1,14 +1,13 @@
 "use strict";
 
 module.exports = (sequelize, DataTypes) => {
-  const CursoInstructor = sequelize.define(
-    "CursoInstructor",
+  const CursosInstructores = sequelize.define("cursosInstructores",
     {
       idCurso: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         references: {
-          model: "Curso",
+          model: "cursos",
           key: "id",
         },
       },
@@ -16,28 +15,28 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         primaryKey: true,
         references: {
-          model: "Instructor",
+          model: "instructores",
           key: "id",
         },
       },
     },
     {
-      tableName: "CursoInstructor",
+      tableName: "cursosInstructores",
       timestamps: false,
     }
   );
 
-  CursoInstructor.associate = function (models) {
-    CursoInstructor.belongsTo(models.Curso, {
+  CursosInstructores.associate = function (models) {
+    CursosInstructores.belongsTo(models.cursos, {
       foreignKey: "idCurso",
-      as: "curso",
+      as: "cursos",
     });
 
-    CursoInstructor.belongsTo(models.Instructor, {
+    CursosInstructores.belongsTo(models.instructores, {
       foreignKey: "idInstructor",
-      as: "instructor",
+      as: "instructores",
     });
   };
 
-  return CursoInstructor;
+  return CursosInstructores;
 };

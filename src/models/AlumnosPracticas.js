@@ -29,8 +29,14 @@ module.exports = (sequelize, DataTypes) => {
         timestamps: false
     });
     AlumnosPracticas.associate = function(models) {
-        AlumnosPracticas.belongsTo(models.alumnos, { foreignKey: 'id_Alumnos' });
-        AlumnosPracticas.belongsTo(models.practicas, { foreignKey: 'id_Practicas' });
+        AlumnosPracticas.belongsTo(models.alumnos, { 
+            foreignKey: 'idAlumnos',
+            as: 'alumnos'
+        });
+        AlumnosPracticas.belongsTo(models.practicas, { 
+            foreignKey: 'idPracticas',
+            as: 'practicas'
+        });
     }
     return AlumnosPracticas;
 };

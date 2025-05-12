@@ -19,11 +19,5 @@ module.exports = (sequelize, DataTypes) => {
         tableName: 'evaluaciones',
         timestamps: false
     });
-
-    Evaluaciones.associate = function(models) {
-        Evaluaciones.hasMany(models.alumnosEvaluaciones, { foreignKey: 'idEvaluacion' });
-        Evaluaciones.hasMany(models.cursos, { foreignKey: 'idEvaluacion' });
-    };
-
     return Evaluaciones;
 };

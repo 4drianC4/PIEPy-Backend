@@ -40,10 +40,18 @@ module.exports = (sequelize, DataTypes) => {
         timestamps: false
     });
     Calificaciones.associate = function(models) {
-        Calificaciones.belongsTo(models.alumnos, { foreignKey: 'idAlumnos' });
-        Calificaciones.belongsTo(models.cursos, { foreignKey: 'idCursos' });
-        Calificaciones.belongsTo(models.evaluaciones, { foreignKey: 'idEvaluaciones' });
-        Calificaciones.belongsTo(models.practicas, { foreignKey: 'idPracticas' });
+        Calificaciones.belongsTo(models.alumnos, { 
+            foreignKey: 'idAlumnos',
+            as: 'alumnos'
+        });
+        Calificaciones.belongsTo(models.cursos, { 
+            foreignKey: 'idCursos',
+            as: 'cursos'
+        });
+        Calificaciones.belongsTo(models.evaluaciones, { 
+            foreignKey: 'idEvaluaciones',
+            as: 'evaluaciones'
+        });
     }
     return Calificaciones;
 };

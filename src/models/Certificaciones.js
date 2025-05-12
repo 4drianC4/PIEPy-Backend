@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = (sequelize, DataTypes) => {
-    const Certificacion = sequelize.define('Certificacion', {
+    const Certificaciones = sequelize.define('certificaciones', {
         id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
@@ -16,8 +16,8 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         },
     }, {
-        tableName: 'Certificacion',
+        tableName: 'certificaciones',
         timestamps: false
     });
-    return Certificacion;
+    return Certificaciones;
 };

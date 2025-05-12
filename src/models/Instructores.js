@@ -32,9 +32,5 @@ module.exports = (sequelize, DataTypes) => {
         timestamps: false
     });
 
-    Instructores.hasMany(sequelize.models.cursosInstructores, {
-        foreignKey: 'idInstructor'
-    });
-
     return Instructores;
 };

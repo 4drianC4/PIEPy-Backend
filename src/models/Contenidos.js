@@ -27,7 +27,10 @@ module.exports = (sequelize, DataTypes) => {
         timestamps: false
     });
     Contenidos.associate = function(models) {
-        Contenidos.belongsTo(models.cursos, { foreignKey: 'idCursos' });
+        Contenidos.belongsTo(models.cursos, { 
+            foreignKey: 'idCursos',
+            as: 'cursos'
+        });
     }
     return Contenidos;
 };  

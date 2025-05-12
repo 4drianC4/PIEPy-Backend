@@ -1,14 +1,14 @@
 "use strict";
 
 module.exports = (sequelize, DataTypes) => {
-  const CertificacionAlumno = sequelize.define(
-    "CertificacionAlumno",
+  const CertificacionesAlumnos = sequelize.define(
+    "CertificacionesAlumnos",
     {
       idCertificacion: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         references: {
-          model: "Certificacion",
+          model: "certificaciones",
           key: "id",
         },
       },
@@ -16,28 +16,28 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         primaryKey: true,
         references: {
-          model: "Alumno",
+          model: "alumnos",
           key: "id",
         },
       },
     },
     {
-      tableName: "CertificacionAlumno",
+      tableName: "certificacionesAlumnos",
       timestamps: false,
     }
   );
 
-  CertificacionAlumno.associate = function (models) {
-    CertificacionAlumno.belongsTo(models.Alumno, {
+  CertificacionesAlumnos.associate = function (models) {
+    CertificacionesAlumnos.belongsTo(models.alumnos, {
       foreignKey: "idAlumno",
-      as: "alumno",
+      as: "alumnos",
     });
 
-    CertificacionAlumno.belongsTo(models.Certificacion, {
+    CertificacionesAlumnos.belongsTo(models.certificaciones, {
       foreignKey: "idCertificacion",
-      as: "certificacion",
+      as: "certificaciones",
     });
   };
 
-  return CertificacionAlumno;
+  return CertificacionesAlumnos;
 };

@@ -19,14 +19,19 @@ module.exports = (sequelize, DataTypes) => {
             }
         }
     }, {
-        tableName: 'CursosPracticas',
+        tableName: 'cursosPracticas',
         timestamps: false
     });
 
     CursosPractica.associate = function(models) {
-        CursosPractica.belongsTo(models.cursos, { foreignKey: 'idCurso' });
-        CursosPractica.belongsTo(models.practicas, { foreignKey: 'idPractica' });
-    };
-
+        CursosPractica.belongsTo(models.cursos, { 
+            foreignKey: 'idCurso',
+            as: 'cursos'
+        });
+        CursosPractica.belongsTo(models.practicas, { 
+            foreignKey: 'idPractica',
+            as: 'practicas'
+        });
+    }
     return CursosPractica;
 };
