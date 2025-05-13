@@ -6,12 +6,12 @@ module.exports = {
             const cursosList = await cursos.findAll({
                 include: [
                     {
-                        model: certificacion,
-                        as: 'certificacion'
+                        model: certificaciones,
+                        as: 'certificaciones'
                     },
                     {
-                        model: evaluacion,
-                        as: 'evaluacion'
+                        model: evaluaciones,
+                        as: 'evaluaciones'
                     }
                 ]
             });
