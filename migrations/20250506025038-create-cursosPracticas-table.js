@@ -3,7 +3,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('CursosPracticas', {
+    await queryInterface.createTable('cursosPracticas', {
       idCurso: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -12,8 +12,6 @@ module.exports = {
           model: 'cursos', 
           key: 'id'
         },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE'
       },
       idPractica: {
         type: Sequelize.INTEGER,
@@ -23,13 +21,11 @@ module.exports = {
           model: 'practicas', 
           key: 'id'
         },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE'
       }
     });
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('CursosPracticas');
+    await queryInterface.dropTable('cursosPracticas');
   }
 };

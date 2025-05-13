@@ -3,7 +3,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('Calificaciones', {
+    await queryInterface.createTable('calificaciones', {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -12,28 +12,28 @@ module.exports = {
       idAlumnos: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'Alumnos',
+          model: 'alumnos',
           key: 'id'
         }
       },
       idCursos: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'Cursos',
+          model: 'cursos',
           key: 'id'
         }
       },
       idEvaluaciones: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'Evaluaciones',
+          model: 'evaluaciones',
           key: 'id'
         }
       },
       idPracticas: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'Practicas',
+          model: 'practicas',
           key: 'id'
         }
       },
@@ -41,6 +41,6 @@ module.exports = {
   },
 
   async down (queryInterface, Sequelize) {
-    await queryInterface.dropTable('users');
+    await queryInterface.dropTable('calificaciones');
   }
 };
