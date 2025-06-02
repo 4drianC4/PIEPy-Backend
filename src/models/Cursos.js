@@ -49,11 +49,11 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: "idEvaluacion",
       as: "evaluaciones",
     });
-    
-    Curso.hasMany(models.ModuloAprendizajes, { 
-      foreignKey: 'idCurso' });
+
+    Curso.hasMany(models.moduloAprendizajes, {
+      foreignKey: 'idCurso'
+    });
   };
-  
 
   return Curso;
 };

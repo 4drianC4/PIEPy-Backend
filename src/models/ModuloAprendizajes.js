@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = (sequelize, DataTypes) => {
-  const ModuloAprendizajes = sequelize.define('ModuloAprendizajes', {
+  const ModuloAprendizajes = sequelize.define('moduloAprendizajes', {
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
@@ -34,7 +34,7 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   ModuloAprendizajes.associate = function(models) {
-        ModuloAprendizajes.belongsTo(models.Curso, { 
+        ModuloAprendizajes.belongsTo(models.cursos, { 
           foreignKey: 'idCurso', 
           as: 'curso' });
   };
