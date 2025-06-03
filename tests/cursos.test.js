@@ -7,7 +7,6 @@ describe('API de cursos', () => {
     let idEvaluacion;
     let idCurso;
 
-    // Antes de todos los tests, crea un certificado y una evaluación
     beforeAll(async () => {
         const certRes = await request(app)
             .post('/api/certificados')
