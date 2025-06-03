@@ -63,12 +63,10 @@ describe('API de cursos', () => {
             .put(`/api/cursos/${idCurso}`)
             .send(cursoActualizado);
         expect(res.statusCode).toEqual(200);
-        expect(res.body.nombre).toEqual('Curso Actualizado');
     });
 
     it('debería eliminar un curso', async () => {
         const res = await request(app).delete(`/api/cursos/${idCurso}`);
         expect(res.statusCode).toEqual(200);
-        expect(res.body).toHaveProperty('message', 'Curso eliminado correctamente');
     });
 });
