@@ -9,7 +9,7 @@ describe('API de cursos', () => {
 
     beforeAll(async () => {
         const certRes = await request(app)
-            .post('/api/certificados')
+            .post('/api/certificaciones')
             .send({
                 nombre: "Certificacion Introducción a Python",
                 descripcion: "Este es un certificado de Introducción a Python"
@@ -53,7 +53,12 @@ describe('API de cursos', () => {
     });
 
     it('debería actualizar un curso existente', async () => {
-        const cursoActualizado = { nombre: 'Curso Actualizado' };
+        const cursoActualizado = { 
+            nombre: 'Curso de Prueba Actualizado',
+            descripcion: 'Descripción del curso de prueba',
+            idCertificacion: idCertificado,
+            idEvaluacion: idEvaluacion 
+        };
         const res = await request(app)
             .put(`/api/cursos/${idCurso}`)
             .send(cursoActualizado);
