@@ -10,19 +10,19 @@ describe('API de cursos', () => {
     beforeAll(async () => {
         const certRes = await request(app)
             .post('/api/certificados')
-            .send({ nombre: 'Certificado Test' });
+            .send({
+                nombre: "Certificacion Introducción a Python",
+                descripcion: "Este es un certificado de Introducción a Python"
+            });
         idCertificado = certRes.body.id;
 
         const evalRes = await request(app)
             .post('/api/evaluaciones')
-            .send({ nombre: 'Evaluación Test' });
+            .send({
+                contenido: "Este es el examen",
+                titulo: "Examen de introducción a Python"
+            });
         idEvaluacion = evalRes.body.id;
-    });
-
-    it('debería obtener todos los cursos', async () => {        
-        const res = await request(app).get('/api/cursos');
-        expect(res.statusCode).toEqual(200);
-        expect(res.body).toBeInstanceOf(Array);
     });
 
     it('debería crear un nuevo curso', async () => {
@@ -39,6 +39,12 @@ describe('API de cursos', () => {
         expect(res.body).toHaveProperty('id');
         idCurso = res.body.id;
     });
+
+    it('debería obtener todos los cursos', async () => {        
+        const res = await request(app).get('/api/cursos');
+        expect(res.statusCode).toEqual(200);
+        expect(res.body).toBeInstanceOf(Array);
+    });    
 
     it('debería obtener un curso por ID', async () => {
         const res = await request(app).get(`/api/cursos/${idCurso}`);
