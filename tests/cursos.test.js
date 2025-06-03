@@ -29,8 +29,8 @@ describe('API de cursos', () => {
         const nuevoCurso = {
             nombre: 'Curso de Prueba',
             descripcion: 'Descripción del curso de prueba',
-            id_certificado: idCertificado,
-            id_evaluacion: idEvaluacion
+            idCertificacion: idCertificado,
+            idEvaluacion: idEvaluacion
         };
         const res = await request(app)
             .post('/api/cursos')
