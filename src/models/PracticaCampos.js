@@ -11,17 +11,18 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    nombreCampo: {
-      type: DataTypes.STRING,
+    linea: {
+      type: DataTypes.TEXT,
       allowNull: false
     },
-    tipo: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    posicion: {
+    orden: {
       type: DataTypes.INTEGER,
       allowNull: false
+    },
+    editable: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false
     }
   }, {
     tableName: 'practicacampos',

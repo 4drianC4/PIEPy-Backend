@@ -1,12 +1,10 @@
 'use strict';
 
-/** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up(queryInterface, Sequelize) {
+  up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('practicacampos', {
       id: {
         type: Sequelize.INTEGER,
-        allowNull: false,
         primaryKey: true,
         autoIncrement: true
       },
@@ -17,25 +15,25 @@ module.exports = {
           model: 'practicas',
           key: 'id'
         },
-        onDelete: 'CASCADE',
-        onUpdate: 'CASCADE'
+        onDelete: 'CASCADE'
       },
-      nombreCampo: {
-        type: Sequelize.STRING,
+      linea: {
+        type: Sequelize.TEXT,
         allowNull: false
       },
-      tipo: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-      posicion: {
+      orden: {
         type: Sequelize.INTEGER,
         allowNull: false
+      },
+      editable: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+        defaultValue: false
       }
     });
   },
 
-  async down(queryInterface, Sequelize) {
+  down: async (queryInterface, Sequelize) => {
     await queryInterface.dropTable('practicacampos');
   }
 };
