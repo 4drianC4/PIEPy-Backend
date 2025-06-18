@@ -1,4 +1,4 @@
-const moduloAprendizajeService = require('../services/moduloAprendizajeService');
+const moduloAprendizajeService = require('../services/ModuloAprendizajeService');
 
 module.exports = {
     async getAllModulos(req, res) {
