@@ -1,10 +1,11 @@
 const { practicaCampos } = require('../models'); 
-async function crearLineasSeparadas(idPractica, lineas) {
+async function crearLineasSeparadas(idPractica, lineas, test) {
   const lineasParaInsertar = lineas.map((linea, index) => ({
     idPractica,
     linea: linea.texto,
     orden: index + 1,
-    editable: linea.editable
+    editable: linea.editable,
+    test: (index === lineas.length - 1) ? test ?? null : null // solo la última línea lleva el test
   }));
 
   return await practicaCampos.bulkCreate(lineasParaInsertar);

@@ -2,12 +2,12 @@ const practicaCamposService = require('../services/PracticaCamposService');
 
 async function crearLineas(req, res) {
   try {
-    const { idPractica, lineas } = req.body;
+    const { idPractica, lineas, test } = req.body;
     if (!idPractica || !lineas || !Array.isArray(lineas)) {
       return res.status(400).json({ error: 'Faltan datos o formato incorrecto' });
     }
 
-    const resultado = await practicaCamposService.crearLineasSeparadas(idPractica, lineas);
+    const resultado = await practicaCamposService.crearLineasSeparadas(idPractica, lineas, test);
     res.status(201).json({ message: 'Líneas creadas con éxito', data: resultado });
   } catch (error) {
     console.error(error);

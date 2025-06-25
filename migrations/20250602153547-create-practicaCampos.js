@@ -29,7 +29,11 @@ module.exports = {
         type: Sequelize.BOOLEAN,
         allowNull: false,
         defaultValue: false
-      }
+      },
+      test: {
+        type: Sequelize.TEXT,
+        allowNull: true
+      },
     });
   },
 

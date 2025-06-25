@@ -12,4 +12,5 @@ router.get('/:id', practicaController.getPracticaById);
 // Crear una nueva práctica
 router.post('/', practicaController.createPractica);
 
+
 module.exports = router;

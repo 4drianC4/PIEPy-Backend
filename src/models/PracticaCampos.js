@@ -23,6 +23,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: false
+    },
+    test: {
+      type: DataTypes.TEXT,
+      allowNull: true
     }
   }, {
     tableName: 'practicacampos',
