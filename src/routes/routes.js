@@ -10,6 +10,7 @@ const evaluacionRoutes = require("./EvaluacionRoutes");
 const moduloAprendizajeRoutes = require("./ModuloAprendizajeRoutes");
 const practicaRoutes = require("./PracticaRoutes");
 const practicaCamposRoutes = require("./PracticaCamposRoutes");
+const seccionRoutes = require("./SeccionRoutes");
 
 router.use("/cursos", cursoRoutes);
 router.use("/analizador", analizadorRoutes);
@@ -20,5 +21,6 @@ router.use("/practicas", practicaRoutes);
 router.use("/practica-campos", practicaCamposRoutes);
 router.use("/moodle", moodleRoutes);
 router.use("/auth", loginRoutes);
+router.use("/seccion", seccionRoutes);
 
 module.exports = router;
