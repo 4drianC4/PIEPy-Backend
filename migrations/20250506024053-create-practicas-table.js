@@ -15,7 +15,7 @@ module.exports = {
         allowNull: true
       },
       contenido: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
         allowNull: false
       }
     });

@@ -510,6 +510,35 @@
 				{
 					"name": "crearPractica",
 					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"titulo\": \"Verificar si un número es par o impar\",\r\n  \"contenido\": \"Practica para determinar si un número es par o impar en Python\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/practicas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"practicas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "obtenerPracticas",
+					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -522,6 +551,87 @@
 							"path": [
 								"api",
 								"practicas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "crearLineasCodigo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"idPractica\": 1,\r\n  \"lineas\": [\r\n    { \"texto\": \"def verificar_par(num):\", \"editable\": false },\r\n    { \"texto\": \"    if num % 2 == 0:\", \"editable\": true },\r\n    { \"texto\": \"        return 'Es par'\", \"editable\": true },\r\n    { \"texto\": \"    else:\", \"editable\": false },\r\n    { \"texto\": \"        return 'Es impar'\", \"editable\": true }\r\n  ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/practica-campos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"practica-campos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editarLineasCodigo",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"lineas\": [\r\n    { \"id\": 1, \"texto\": \"def verificar_par(numero):\", \"editable\": false },\r\n    { \"id\": 2, \"texto\": \"    if numero % 2 == 0:\", \"editable\": true },\r\n    { \"id\": 15, \"texto\": \"        return 'Es Par'\", \"editable\": true }\r\n  ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/practica-campos/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"practica-campos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ObtenerLineasCodigo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/practica-campos/1/lineas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"practica-campos",
+								"1",
+								"lineas"
 							]
 						}
 					},
