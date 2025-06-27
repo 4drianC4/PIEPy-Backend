@@ -42,5 +42,59 @@ module.exports = {
         } catch (error) {
             res.status(500).json({ message: error.message });
         }
+    },
+
+    /**
+     * Obtiene los IDs de cursos que deben estar ocultos para un estudiante
+     */
+    async getCursosOcultosParaEstudiante(req, res) {
+        try {
+            const { idAlumno } = req.params;
+            
+            if (!idAlumno) {
+                return res.status(400).json({ 
+                    message: 'El ID del alumno es requerido' 
+                });
+            }
+
+            const cursosOcultosIds = await cursoService.getCursosOcultosParaEstudiante(idAlumno);
+            res.status(200).json({
+                idAlumno: parseInt(idAlumno),
+                cursosOcultos: cursosOcultosIds,
+                mensaje: `${cursosOcultosIds.length} cursos están ocultos para este estudiante`
+            });
+        } catch (error) {
+            res.status(500).json({ 
+                message: 'Error obteniendo cursos ocultos',
+                error: error.message 
+            });
+        }
+    },
+
+    /**
+     * Obtiene cursos disponibles (no ocultos) para un estudiante
+     */
+    async getCursosDisponiblesParaEstudiante(req, res) {
+        try {
+            const { idAlumno } = req.params;
+            
+            if (!idAlumno) {
+                return res.status(400).json({ 
+                    message: 'El ID del alumno es requerido' 
+                });
+            }
+
+            const cursosDisponibles = await cursoService.getCursosDisponiblesParaEstudiante(idAlumno);
+            res.status(200).json({
+                idAlumno: parseInt(idAlumno),
+                cursosDisponibles: cursosDisponibles,
+                total: cursosDisponibles.length
+            });
+        } catch (error) {
+            res.status(500).json({ 
+                message: 'Error obteniendo cursos disponibles',
+                error: error.message 
+            });
+        }
     }
 };

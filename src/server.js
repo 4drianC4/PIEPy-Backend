@@ -6,7 +6,13 @@ const routes = require("./routes/routes");
 
 const app = express();
 
-app.use(cors());
+// Configuración CORS para permitir credenciales y origen específico
+const corsOptions = {
+  origin: "http://localhost:3000", // Cambia esto si tu frontend está en otro dominio/puerto
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
@@ -24,4 +30,5 @@ if (require.main === module) {
     console.log(`Server is running on port ${port}`);
   });
 }
+
 module.exports = app;
